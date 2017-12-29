@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <title></title>
+</head>
+<body>
+<p>
+    <a href="{% url 'learning_logs:index' %}">Learning Log</a>-
+    <a href="{% url 'learning_logs:topics' %}">Topics</a>-
+    {% if user.is_authentucated %}
+    hello,{{user.username}}.
+    <a href="{% url 'users:logout' %}">log out</a>
+    {% else %}
+    <a href="{% url 'users:login' %}">log in</a>
+    {% endif %}
+
+</p>
+{% block content %}{% endblock content %}
+</body>
+</html>
